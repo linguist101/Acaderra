@@ -1,32 +1,4 @@
 // src/app/demo/page.tsx
-import Link from "next/link";
-
-const mockMessages = [
-  {
-    id: 1,
-    sender: "Dr. Patel",
-    role: "Lecturer",
-    content:
-      "Reminder: Week 4 lecture recording is now available under ‘Resources’. Please watch before Friday.",
-    time: "09:12",
-  },
-  {
-    id: 2,
-    sender: "Maya",
-    role: "Year 1",
-    content:
-      "Does anyone want to form a study group for the algorithms assignment?",
-    time: "09:18",
-  },
-  {
-    id: 3,
-    sender: "Sam (Alumni)",
-    role: "Alumni · Software Engineer",
-    content:
-      "Happy to run a Q&A next week about placements and internships. Drop questions here.",
-    time: "09:23",
-  },
-];
 
 const mockEvents = [
   {
@@ -49,262 +21,164 @@ const mockEvents = [
   },
 ];
 
-const mockLectures = [
-  { id: 1, title: "Week 3 · Introduction to Algorithms", duration: "42 min" },
-  { id: 2, title: "Week 2 · Data Types & Variables", duration: "35 min" },
-  { id: 3, title: "Week 1 · Welcome & Setup", duration: "28 min" },
-];
-
-export default function DemoPage() {
+export default function DemoHomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-50">
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-8 pt-4 md:px-8">
-        {/* Top bar */}
-        <header className="flex items-center justify-between gap-4 border-b border-slate-800 pb-3">
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500 text-xl font-bold">
-                A
-              </div>
-              <div className="hidden text-left text-xs sm:block">
-                <p className="font-semibold text-slate-100">Acaderra</p>
-                <p className="text-[11px] text-slate-400">
-                  Demo University · Student view
-                </p>
-              </div>
-            </Link>
+    <main className="min-h-screen bg-black text-slate-900">
+      {/* Center the main white app frame on black background */}
+      <div className="flex min-h-screen items-center justify-center px-4 py-6">
+        <div className="relative flex w-full max-w-6xl flex-col rounded-3xl bg-white shadow-2xl">
+
+          {/* Top strip label */}
+          <div className="border-b border-slate-200 py-2 text-center text-sm font-semibold text-slate-700">
+            Home page
           </div>
 
-          <div className="flex items-center gap-3 text-xs">
-            <span className="hidden rounded-full border border-slate-700 px-2 py-1 text-slate-300 md:inline">
-              Role: Current student (Year 1)
-            </span>
-            <button className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-slate-200 hover:bg-slate-700">
-              Switch to staff demo
+          {/* Header bar inside frame */}
+          <header className="flex items-center justify-between gap-4 border-b border-slate-200 px-6 py-3">
+
+            {/* Left Hamburger */}
+            <button
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-700 hover:bg-slate-100"
+              aria-label="Open sidebar"
+            >
+              <span className="flex flex-col gap-[3px]">
+                <span className="block h-[2px] w-4 rounded-full bg-slate-700" />
+                <span className="block h-[2px] w-4 rounded-full bg-slate-700" />
+                <span className="block h-[2px] w-4 rounded-full bg-slate-700" />
+              </span>
             </button>
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-700 text-sm font-semibold">
-              Y
-            </div>
-          </div>
-        </header>
 
-        <div className="mt-4 grid flex-1 gap-4 md:grid-cols-[220px_minmax(0,1fr)]">
-          {/* Sidebar */}
-          <aside className="space-y-3 rounded-2xl border border-slate-800 bg-slate-900/70 p-3 text-sm">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
-              Navigation
-            </p>
-            <nav className="space-y-1">
-              <button className="flex w-full items-center justify-between rounded-lg bg-slate-800 px-2.5 py-2 text-left text-slate-100">
-                <span>Overview</span>
-                <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-300">
-                  Live demo
+            <div className="flex-1" />
+
+            {/* Right: university + role + bell */}
+            <div className="flex items-center gap-3 text-xs">
+              <span className="rounded-full border border-slate-300 px-3 py-1 text-slate-700">
+                Demo university
+              </span>
+
+              <span className="rounded-full border border-slate-300 px-3 py-1 text-slate-700">
+                Role: Current Year (Year 1)
+              </span>
+
+              {/* Notification Bell */}
+              <button
+                className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-700 hover:bg-slate-100"
+                aria-label="Notifications"
+              >
+                <span className="relative block h-4 w-4 rounded-full border border-slate-600" />
+                <span className="absolute bottom-[7px] h-[2px] w-4 rounded-full bg-slate-600" />
+
+                <span className="absolute right-1 top-1 inline-flex h-3 w-3 items-center justify-center rounded-full bg-red-500 text-[9px] font-semibold text-white">
+                  1
                 </span>
               </button>
-              <button className="w-full rounded-lg px-2.5 py-2 text-left text-slate-300 hover:bg-slate-800">
-                Classrooms
-              </button>
-              <button className="w-full rounded-lg px-2.5 py-2 text-left text-slate-300 hover:bg-slate-800">
-                Clubs &amp; societies
-              </button>
-              <button className="w-full rounded-lg px-2.5 py-2 text-left text-slate-300 hover:bg-slate-800">
-                Alumni &amp; careers
-              </button>
-            </nav>
-
-            <div className="mt-4 space-y-1 text-xs text-slate-400">
-              <p className="font-semibold uppercase tracking-wide">
-                Quick facts
-              </p>
-              <p>• Messages are AI moderated in real time.</p>
-              <p>• One-tap translation for international students.</p>
-              <p>• Lectures and timetables live in the same space.</p>
             </div>
-          </aside>
+          </header>
 
-          {/* Main content */}
-          <section className="space-y-4">
-            {/* Classroom header */}
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-indigo-300">
-                  Virtual classroom
-                </p>
-                <h1 className="text-lg font-semibold text-slate-50">
-                  CS101 · Introduction to Computer Science
+          {/* Main two-column layout */}
+          <div className="grid min-h-[520px] grid-cols-[70px,minmax(0,1fr)]">
+
+            {/* LEFT SIDEBAR */}
+            <aside className="flex flex-col items-center gap-4 border-r border-slate-200 bg-slate-100 px-2 py-4 text-[11px] text-slate-700">
+              <SidebarIcon label="Home" symbol="🏠" />
+              <SidebarIcon label="Chats" symbol="💬" notification />
+              <SidebarIcon label="Calendar" symbol="📅" />
+              <SidebarIcon label="Clubs" symbol="👥" />
+              <SidebarIcon label="AI Notebook" symbol="📓" />
+              <SidebarIcon label="Courses" symbol="🎓" />
+              <SidebarIcon label="Settings" symbol="⚙️" />
+              <SidebarIcon label="Profile" symbol="👤" />
+            </aside>
+
+            {/* RIGHT CONTENT AREA */}
+            <section className="relative px-6 py-8">
+
+              {/* Section Title */}
+              <div className="text-center">
+                <h1 className="text-lg font-semibold text-slate-900">
+                  Latest Events in {`{university}`}
                 </h1>
-                <p className="text-xs text-slate-400">
-                  Year 1 · Semester 1 · 126 students · 3 alumni mentors
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-2 text-xs">
-                <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-emerald-300">
-                  Online &amp; on-campus ready
-                </span>
-                <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-300">
-                  AI translation enabled
-                </span>
-              </div>
-            </div>
-
-            {/* Two-column layout */}
-            <div className="grid gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-              {/* Left side: chat + lectures */}
-              <div className="space-y-4">
-                {/* Chat */}
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-                  <div className="mb-2 flex items-center justify-between text-xs">
-                    <div>
-                      <p className="font-semibold text-slate-100">
-                        Class chat (AI moderated)
-                      </p>
-                      <p className="text-slate-500">
-                        Safe, persistent space for each cohort.
-                      </p>
-                    </div>
-                    <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-300">
-                      Toxic messages auto-flagged
-                    </span>
-                  </div>
-
-                  <div className="space-y-2 rounded-xl bg-slate-950/60 p-3 text-xs">
-                    {mockMessages.map((m) => (
-                      <div
-                        key={m.id}
-                        className="space-y-0.5 rounded-lg bg-slate-800/60 p-2"
-                      >
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="font-semibold text-slate-100">
-                            {m.sender}
-                          </span>
-                          <span className="text-slate-500">{m.time}</span>
-                        </div>
-                        <p className="text-[11px] text-slate-300">
-                          {m.content}
-                        </p>
-                        <p className="text-[10px] text-slate-500">{m.role}</p>
-                      </div>
-                    ))}
-
-                    <div className="mt-1 flex items-center justify-between text-[10px] text-slate-500">
-                      <p>
-                        Demo: messages are static here, but in production this
-                        is live chat with WebSockets.
-                      </p>
-                      <button className="rounded-md bg-slate-800 px-2 py-1 text-[10px] text-slate-200 hover:bg-slate-700">
-                        Translate example
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Lecture recordings */}
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-                  <div className="mb-2 flex items-center justify-between text-xs">
-                    <div>
-                      <p className="font-semibold text-slate-100">
-                        Lecture recordings &amp; resources
-                      </p>
-                      <p className="text-slate-500">
-                        Central library for missed classes and revision.
-                      </p>
-                    </div>
-                    <button className="rounded-md bg-slate-800 px-3 py-1 text-[11px] text-slate-200 hover:bg-slate-700">
-                      Upload (staff)
-                    </button>
-                  </div>
-
-                  <div className="space-y-2 rounded-xl bg-slate-950/60 p-3 text-xs">
-                    {mockLectures.map((lec) => (
-                      <div
-                        key={lec.id}
-                        className="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900/80 px-3 py-2"
-                      >
-                        <div>
-                          <p className="text-slate-100">{lec.title}</p>
-                          <p className="text-[11px] text-slate-500">
-                            Slides · Transcript · Captions
-                          </p>
-                        </div>
-                        <span className="text-[11px] text-slate-400">
-                          {lec.duration}
-                        </span>
-                      </div>
-                    ))}
-                    <p className="mt-1 text-[10px] text-slate-500">
-                      Demo: in the real system, these would stream from secure
-                      storage with access controls per cohort.
-                    </p>
-                  </div>
-                </div>
+                <div className="mx-auto mt-1 h-[2px] w-40 rounded-full bg-slate-900" />
               </div>
 
-              {/* Right side: events / alumni */}
-              <div className="space-y-4">
-                {/* Events */}
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
-                  <div className="mb-2 flex items-center justify-between text-xs">
+              {/* Events Card */}
+              <div className="mt-8 flex justify-center">
+                <div className="w-full max-w-md rounded-2xl bg-slate-950 text-slate-50 shadow-lg">
+
+                  {/* Card Header */}
+                  <div className="flex items-start justify-between rounded-t-2xl bg-slate-900 px-4 py-3">
                     <div>
-                      <p className="font-semibold text-slate-100">
-                        Your upcoming week
-                      </p>
-                      <p className="text-slate-500">
+                      <p className="text-sm font-semibold">Your upcoming week</p>
+                      <p className="mt-0.5 text-[11px] text-slate-300">
                         Timetable changes and events in one place.
                       </p>
                     </div>
-                    <span className="rounded-full bg-sky-500/10 px-2 py-0.5 text-[10px] text-sky-300">
+
+                    <button className="rounded-md bg-sky-700 px-3 py-1 text-[11px] font-medium text-slate-50 hover:bg-sky-600">
                       Sync with uni timetable
-                    </span>
+                    </button>
                   </div>
 
-                  <div className="space-y-2 rounded-xl bg-slate-950/60 p-3 text-xs">
+                  {/* Events List */}
+                  <div className="space-y-2 px-4 py-3 text-sm">
                     {mockEvents.map((ev) => (
-                      <div
-                        key={ev.id}
-                        className="space-y-0.5 rounded-lg border border-slate-800 bg-slate-900/80 p-2"
-                      >
-                        <p className="text-slate-100">{ev.title}</p>
-                        <p className="text-[11px] text-slate-400">
-                          {ev.time}
-                        </p>
-                        <p className="text-[10px] text-slate-500">
+                      <div key={ev.id} className="rounded-xl bg-slate-900 px-3 py-3">
+                        <p className="text-slate-50">{ev.title}</p>
+                        <p className="mt-1 text-xs text-slate-300">{ev.time}</p>
+                        <p className="mt-1 inline-flex rounded-full bg-slate-800 px-2 py-0.5 text-[11px] text-slate-300">
                           Type: {ev.type}
                         </p>
                       </div>
                     ))}
-                    <p className="mt-1 text-[10px] text-slate-500">
-                      Demo: events are static here, but would be driven by an
-                      events API or university calendar integration.
-                    </p>
                   </div>
-                </div>
 
-                {/* Alumni block */}
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4 text-xs">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    Alumni &amp; careers
-                  </p>
-                  <p className="mt-2 text-slate-200">
-                    Alumni stay in the same space after graduation. They can
-                    join course channels, run Q&amp;A sessions and advertise
-                    roles — all with LinkedIn integration.
-                  </p>
-                  <ul className="mt-2 space-y-1 text-slate-400">
-                    <li>• Mentoring pairs between Year 3 and recent grads</li>
-                    <li>• Employer-led events hosted inside Acaderra</li>
-                    <li>• Opt-in alumni communities per course and society</li>
-                  </ul>
-                  <p className="mt-3 text-[10px] text-slate-500">
-                    This demo focuses on student view. Staff and alumni views
-                    would surface analytics, moderation tools and recruitment
-                    features.
-                  </p>
                 </div>
               </div>
-            </div>
-          </section>
+
+              {/* Floating Right Buttons */}
+              <div className="pointer-events-none absolute inset-y-0 right-4 flex flex-col items-end justify-center gap-3">
+                <button className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-teal-500 text-white shadow-lg hover:bg-teal-400">
+                  <span className="text-lg">📰</span>
+                </button>
+
+                <button className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-teal-500 text-white shadow-lg hover:bg-teal-400">
+                  <span className="text-lg">🤖</span>
+                </button>
+              </div>
+
+            </section>
+          </div>
         </div>
       </div>
     </main>
+  );
+}
+
+/* SIDEBAR ICON COMPONENT */
+function SidebarIcon({
+  label,
+  symbol,
+  notification,
+}: {
+  label: string;
+  symbol: string;
+  notification?: boolean;
+}) {
+  return (
+    <div className="relative flex flex-col items-center gap-1">
+      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-200 text-lg">
+        {symbol}
+      </div>
+
+      {notification && (
+        <span className="absolute -right-1 top-0 inline-flex h-3 w-3 items-center justify-center rounded-full bg-red-500 text-[8px] font-semibold text-white">
+          1
+        </span>
+      )}
+
+      <span className="text-[9px] text-slate-600 text-center leading-tight">
+        {label}
+      </span>
+    </div>
   );
 }
