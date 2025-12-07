@@ -74,10 +74,18 @@ export default function DemoPage() {
             {menuItems.slice(0, 6).map((item, i) => (
               <button
                 key={i}
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-slate-800/60 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-slate-800/60 transition-colors overflow-hidden"
               >
-                <item.icon className="h-5 w-5 text-teal-300" />
-                {!sidebarCollapsed && <span>{item.label}</span>}
+                <item.icon className="h-5 w-5 text-teal-300 flex-shrink-0" />
+                <span
+                  className={`whitespace-nowrap text-sm transition-[opacity,transform] duration-300 ${
+                    sidebarCollapsed
+                      ? "opacity-0 -translate-x-2"
+                      : "opacity-100 translate-x-0"
+                  }`}
+                >
+                  {item.label}
+                </span>
               </button>
             ))}
           </div>
@@ -90,10 +98,18 @@ export default function DemoPage() {
             {menuItems.slice(6).map((item, i) => (
               <button
                 key={i}
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-slate-800/60 transition-colors"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-slate-800/60 transition-colors overflow-hidden"
               >
-                <item.icon className="h-5 w-5 text-teal-300" />
-                {!sidebarCollapsed && <span>{item.label}</span>}
+                <item.icon className="h-5 w-5 text-teal-300 flex-shrink-0" />
+                <span
+                  className={`whitespace-nowrap text-sm transition-[opacity,transform] duration-300 ${
+                    sidebarCollapsed
+                      ? "opacity-0 -translate-x-2"
+                      : "opacity-100 translate-x-0"
+                  }`}
+                >
+                  {item.label}
+                </span>
               </button>
             ))}
           </div>
