@@ -51,7 +51,6 @@ export default function DemoPage() {
 
   return (
     <div className="min-h-screen w-full bg-[#0B0F19] text-slate-100 flex">
-
       {/* SIDEBAR */}
       <aside
         className={`relative z-20 h-screen border-r border-slate-800 bg-slate-900/30 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.4,0.0,0.2,1)] 
@@ -82,10 +81,8 @@ export default function DemoPage() {
 
       {/* MAIN */}
       <main className="flex-1 flex flex-col">
-
         {/* TOP NAVBAR */}
         <header className="flex h-14 items-center border-b border-slate-800 bg-slate-900/40 backdrop-blur-xl px-4 md:px-6">
-
           {/* LEFT: HAMBURGER */}
           <div className="flex flex-1 items-center">
             <button
@@ -113,7 +110,6 @@ export default function DemoPage() {
 
           {/* RIGHT: UNIVERSITY / ROLE / NOTIFICATION */}
           <div className="flex flex-1 justify-end items-center gap-3 text-[11px]">
-
             <span className="hidden md:inline rounded-full border border-slate-700/80 bg-slate-900/70 px-3 py-1 text-slate-200">
               Demo university
             </span>
@@ -138,7 +134,6 @@ export default function DemoPage() {
 
         {/* PAGE CONTENT */}
         <div className="p-8">
-
           {/* TITLE */}
           <p className="text-xs tracking-wide text-teal-300 mb-1">
             EVENTS OVERVIEW
@@ -150,13 +145,12 @@ export default function DemoPage() {
           </h1>
 
           <p className="mt-3 max-w-2xl text-slate-400 text-sm">
-            A quick snapshot of this week's lectures, society events and alumni-led
-            sessions, pulled into one simple view for students.
+            A quick snapshot of this week’s lectures, society events and
+            alumni-led sessions, pulled into one simple view for students.
           </p>
 
           {/* EVENTS CARD */}
           <section className="mt-10 w-full max-w-3xl rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl shadow-xl pt-5 overflow-hidden">
-
             <div className="flex justify-between items-center px-6 pb-3">
               <h2 className="text-lg font-semibold text-teal-300">
                 Your upcoming week
@@ -195,7 +189,6 @@ export default function DemoPage() {
             <SparklesIcon className="h-6 w-6" />
           </button>
         </div>
-
       </main>
     </div>
   );
