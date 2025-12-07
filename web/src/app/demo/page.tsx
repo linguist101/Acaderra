@@ -50,7 +50,6 @@ export default function DemoPage() {
   ];
 
   return (
-    // CHANGED: min-h-screen -> h-screen so viewport is fixed
     <div className="h-screen w-full bg-[#0B0F19] text-slate-100 flex">
       {/* SIDEBAR */}
       <aside
@@ -102,11 +101,10 @@ export default function DemoPage() {
       </aside>
 
       {/* MAIN CONTENT AREA */}
-      {/* CHANGED: added min-h-0 so inner content can scroll */}
       <main className="flex-1 flex flex-col min-h-0">
-        {/* TOP NAVBAR — NO TOGGLE HERE */}
+        {/* TOP NAVBAR */}
         <header className="flex h-14 items-center border-b border-slate-800 bg-slate-900/40 backdrop-blur-xl px-4 md:px-6">
-          {/* LEFT SPACER (keeps center + right aligned correctly) */}
+          {/* LEFT SPACER */}
           <div className="flex flex-1" />
 
           {/* CENTER — SEARCH BAR */}
@@ -146,8 +144,7 @@ export default function DemoPage() {
           </div>
         </header>
 
-        {/* PAGE CONTENT */}
-        {/* CHANGED: added flex-1 overflow-y-auto so only this area scrolls */}
+        {/* PAGE CONTENT (scrollable) */}
         <div className="flex-1 overflow-y-auto p-8">
           <p className="text-xs tracking-wide text-teal-300 mb-1">EVENTS OVERVIEW</p>
 
@@ -163,16 +160,28 @@ export default function DemoPage() {
 
           {/* EVENTS SECTION */}
           <section className="mt-10 w-full max-w-3xl rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl shadow-xl pt-5 overflow-hidden">
-            <div className="flex justify-between items-center px-6 py-4
+            {/* GRADIENT HEADER BAR */}
+            <div
+              className="-mt-5 flex justify-between items-center px-6 py-4 
               bg-gradient-to-r from-teal-400 via-teal-500 to-cyan-500 
-              text-slate-900 font-medium shadow-md">
-              
-              <h2 className="text-lg font-semibold text-teal-300">Your upcoming week</h2>
-              <button className="rounded-full bg-teal-600/80 hover:bg-teal-500 px-4 py-1 text-xs text-white transition">
+              rounded-t-xl text-white shadow-md"
+            >
+              <div className="text-white/90">
+                <h2 className="text-lg font-semibold">Your upcoming week</h2>
+                <p className="text-xs text-white/80 mt-1">
+                  Timetable changes and key events in one view.
+                </p>
+              </div>
+
+              <button
+                className="rounded-full bg-white/20 hover:bg-white/30 
+                px-4 py-1.5 text-xs text-white backdrop-blur-sm transition"
+              >
                 Sync timetable
               </button>
             </div>
 
+            {/* EVENTS LIST */}
             <div className="border-t border-slate-800 px-6 py-4 flex flex-col gap-4">
               {events.map((ev, i) => (
                 <div
