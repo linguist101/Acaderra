@@ -163,7 +163,10 @@ export default function DemoPage() {
 
           {/* EVENTS SECTION */}
           <section className="mt-10 w-full max-w-3xl rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl shadow-xl pt-5 overflow-hidden">
-            <div className="flex justify-between items-center px-6 pb-3">
+            <div className="flex justify-between items-center px-6 py-4
+              bg-gradient-to-r from-teal-400 via-teal-500 to-cyan-500 
+              text-slate-900 font-medium shadow-md">
+              
               <h2 className="text-lg font-semibold text-teal-300">Your upcoming week</h2>
               <button className="rounded-full bg-teal-600/80 hover:bg-teal-500 px-4 py-1 text-xs text-white transition">
                 Sync timetable
