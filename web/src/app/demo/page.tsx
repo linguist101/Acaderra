@@ -50,8 +50,8 @@ export default function DemoPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-[#0B0F19] text-slate-100 flex">
-
+    // CHANGED: min-h-screen -> h-screen so viewport is fixed
+    <div className="h-screen w-full bg-[#0B0F19] text-slate-100 flex">
       {/* SIDEBAR */}
       <aside
         className={`relative z-20 h-screen border-r border-slate-800 bg-slate-900/30 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.4,0.0,0.2,1)]
@@ -80,12 +80,13 @@ export default function DemoPage() {
                 <item.icon className="h-5 w-5 text-teal-300" />
                 {!sidebarCollapsed && <span>{item.label}</span>}
               </button>
-          ))}
+            ))}
           </div>
-          {/* SPACER — pushes bottom items to the bottom */}
+
+          {/* SPACER — pushes bottom items down */}
           <div className="flex-1" />
 
-          {/* BOTTOM MENU ITEMS */}
+          {/* BOTTOM MENU ITEMS: Settings + Profile */}
           <div className="flex flex-col gap-2 mb-4">
             {menuItems.slice(6).map((item, i) => (
               <button
@@ -101,11 +102,10 @@ export default function DemoPage() {
       </aside>
 
       {/* MAIN CONTENT AREA */}
-      <main className="flex-1 flex flex-col">
-
+      {/* CHANGED: added min-h-0 so inner content can scroll */}
+      <main className="flex-1 flex flex-col min-h-0">
         {/* TOP NAVBAR — NO TOGGLE HERE */}
         <header className="flex h-14 items-center border-b border-slate-800 bg-slate-900/40 backdrop-blur-xl px-4 md:px-6">
-
           {/* LEFT SPACER (keeps center + right aligned correctly) */}
           <div className="flex flex-1" />
 
@@ -147,7 +147,8 @@ export default function DemoPage() {
         </header>
 
         {/* PAGE CONTENT */}
-        <div className="p-8">
+        {/* CHANGED: added flex-1 overflow-y-auto so only this area scrolls */}
+        <div className="flex-1 overflow-y-auto p-8">
           <p className="text-xs tracking-wide text-teal-300 mb-1">EVENTS OVERVIEW</p>
 
           <h1 className="text-3xl font-semibold">
