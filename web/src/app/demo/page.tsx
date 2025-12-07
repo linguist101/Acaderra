@@ -12,6 +12,7 @@ import {
   AcademicCapIcon,
   Cog6ToothIcon,
   UserCircleIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 
 const mockEvents = [
@@ -47,20 +48,30 @@ export default function DemoHomePage() {
 
       <div className="relative flex min-h-screen flex-col">
         {/* HEADER */}
-        <header className="flex h-14 items-center justify-between border-b border-slate-800/70 bg-slate-950/80 px-4 md:px-6">
+        <header className="flex h-14 items-center gap-4 border-b border-slate-800/70 bg-slate-950/80 px-4 md:px-6">
           {/* Left: hamburger */}
           <button
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 text-slate-200 hover:border-teal-400 hover:text-teal-300"
+            className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-slate-700/80 bg-slate-900/70 text-slate-200 hover:border-teal-400 hover:text-teal-300"
             aria-label="Toggle sidebar"
             onClick={() => setSidebarCollapsed((prev) => !prev)}
           >
             <Bars3Icon className="h-4 w-4" />
           </button>
 
-          <div className="flex-1" />
+          {/* Center: search bar */}
+          <div className="flex-1 max-w-xl">
+            <div className="relative">
+              <MagnifyingGlassIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search courses, events, clubs, alumni..."
+                className="h-9 w-full rounded-full border border-slate-700/80 bg-slate-900/80 pl-9 pr-3 text-xs text-slate-100 placeholder:text-slate-500 focus:border-teal-400 focus:outline-none focus:ring-1 focus:ring-teal-500/60"
+              />
+            </div>
+          </div>
 
           {/* Right: environment + role + bell */}
-          <div className="flex items-center gap-3 text-[11px]">
+          <div className="flex flex-shrink-0 items-center gap-3 text-[11px]">
             <span className="hidden rounded-full border border-slate-700/80 bg-slate-900/70 px-3 py-1 text-slate-200 md:inline">
               Demo university
             </span>
