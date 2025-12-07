@@ -69,16 +69,34 @@ export default function DemoPage() {
         </div>
 
         {/* SIDEBAR MENU */}
-        <nav className="mt-4 flex flex-col gap-2 px-2">
-          {menuItems.map((item, i) => (
-            <button
-              key={i}
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-slate-800/60 transition-colors"
-            >
-              <item.icon className="h-5 w-5 text-teal-300" />
-              {!sidebarCollapsed && <span>{item.label}</span>}
-            </button>
+        <nav className="mt-4 flex flex-col h-[calc(100%-56px)] px-2">
+          {/* TOP MENU ITEMS */}
+          <div className="flex flex-col gap-2">
+            {menuItems.slice(0, 6).map((item, i) => (
+              <button
+                key={i}
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-slate-800/60 transition-colors"
+              >
+                <item.icon className="h-5 w-5 text-teal-300" />
+                {!sidebarCollapsed && <span>{item.label}</span>}
+              </button>
           ))}
+          </div>
+          {/* SPACER — pushes bottom items to the bottom */}
+          <div className="flex-1" />
+
+          {/* BOTTOM MENU ITEMS */}
+          <div className="flex flex-col gap-2 mb-4">
+            {menuItems.slice(6).map((item, i) => (
+              <button
+                key={i}
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-slate-800/60 transition-colors"
+              >
+                <item.icon className="h-5 w-5 text-teal-300" />
+                {!sidebarCollapsed && <span>{item.label}</span>}
+              </button>
+            ))}
+          </div>
         </nav>
       </aside>
 
