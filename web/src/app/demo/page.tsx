@@ -14,13 +14,13 @@ import {
   UserCircleIcon,
   BellIcon,
   NewspaperIcon,
-  SparklesIcon,
   MagnifyingGlassIcon,
   PhoneIcon,
   VideoCameraIcon,
   InformationCircleIcon,
   PlusIcon,
 } from "@heroicons/react/24/outline";
+import AiAssistant from "@/components/AiAssistant";
 
 export default function ChatsPage() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -71,7 +71,7 @@ export default function ChatsPage() {
           {/* TOP MENU ITEMS */}
           <div className="flex flex-col gap-2">
             {menuItems.slice(0, 6).map((item, i) => {
-              const isActive = item.route === "/demo/chats";
+              const isActive = item.route === "/demo/chats"; // Chats active on this page
               return (
                 <button
                   key={i}
@@ -261,10 +261,9 @@ export default function ChatsPage() {
           <button className="h-14 w-14 rounded-full bg-teal-600 text-white shadow-lg shadow-teal-900/60 flex items-center justify-center hover:bg-teal-500 transition">
             <NewspaperIcon className="h-6 w-6" />
           </button>
-          <button className="h-14 w-14 rounded-full bg-teal-600 text-white shadow-lg shadow-teal-900/60 flex items-center justify-center hover:bg-teal-500 transition">
-            <SparklesIcon className="h-6 w-6" />
-          </button>
         </div>
+
+        <AiAssistant />
       </main>
     </div>
   );
