@@ -14,13 +14,13 @@ import {
   UserCircleIcon,
   BellIcon,
   NewspaperIcon,
-  SparklesIcon,
   MagnifyingGlassIcon,
   PhoneIcon,
   VideoCameraIcon,
   InformationCircleIcon,
   PlusIcon,
 } from "@heroicons/react/24/outline";
+import AiAssistant from "@/components/AiAssistant";
 
 export default function ChatsPage() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -71,15 +71,14 @@ export default function ChatsPage() {
           {/* TOP MENU ITEMS */}
           <div className="flex flex-col gap-2">
             {menuItems.slice(0, 6).map((item, i) => {
-              const isActive = item.route === "/demo/chats";
+              const isActive = item.route === "/demo/chats"; // Chats active on this page
+
               return (
                 <button
                   key={i}
                   onClick={() => item.route && router.push(item.route)}
                   className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm overflow-hidden transition-colors ${
-                    isActive
-                      ? "bg-slate-800/70"
-                      : "hover:bg-slate-800/60"
+                    isActive ? "bg-slate-800/70" : "hover:bg-slate-800/60"
                   }`}
                 >
                   <item.icon className="h-5 w-5 text-teal-300 flex-shrink-0" />
@@ -166,7 +165,6 @@ export default function ChatsPage() {
 
         {/* PAGE CONTENT */}
         <div className="flex-1 overflow-y-auto p-8">
-          {/* MAIN CHAT LAYOUT */}
           <div className="flex gap-6 h-full min-h-[480px]">
             {/* LEFT PANEL — CHAT LISTS */}
             <div className="w-80 flex flex-col">
@@ -181,7 +179,6 @@ export default function ChatsPage() {
                     className="rounded-xl bg-slate-900/70 px-3 py-2 flex gap-3 items-center cursor-pointer hover:border-teal-400/60 border border-transparent transition"
                   >
                     <div className="h-9 w-9 rounded-full bg-slate-700 overflow-hidden flex items-center justify-center text-xs font-semibold">
-                      {/* Placeholder avatar */}
                       <span>{chat.name.charAt(0)}</span>
                     </div>
                     <div className="flex flex-col">
@@ -244,7 +241,7 @@ export default function ChatsPage() {
               {/* Messages area */}
               <div className="flex-1 relative">
                 <div className="absolute inset-3 rounded-xl border border-teal-500/40 bg-slate-950/40" />
-                {/* Placeholder content */}
+                {/* Placeholder for messages */}
               </div>
 
               {/* Message input */}
@@ -265,10 +262,9 @@ export default function ChatsPage() {
           <button className="h-14 w-14 rounded-full bg-teal-600 text-white shadow-lg shadow-teal-900/60 flex items-center justify-center hover:bg-teal-500 transition">
             <NewspaperIcon className="h-6 w-6" />
           </button>
-          <button className="h-14 w-14 rounded-full bg-teal-600 text-white shadow-lg shadow-teal-900/60 flex items-center justify-center hover:bg-teal-500 transition">
-            <SparklesIcon className="h-6 w-6" />
-          </button>
         </div>
+
+        <AiAssistant />
       </main>
     </div>
   );
