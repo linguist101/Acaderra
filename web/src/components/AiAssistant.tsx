@@ -41,7 +41,7 @@ export default function AiAssistant() {
     setLoading(true);
     setError(null);
 
-    try:
+    try {
       // Only send last N messages as history to keep context tight
       const historyToSend = updatedMessages.slice(-12);
 
